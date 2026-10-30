@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { motion, useReducedMotion } from 'motion/react'
 import { ArrowDown, ArrowRight, Croissant, MapPin, Store } from 'lucide-react'
 import { MiniCoin } from './mini-coin'
+import kum from '../../kum.png'
 
 const ROUTE = [
   { icon: Croissant, label: '성심당', sub: '빵지순례 출발' },
@@ -20,8 +21,14 @@ export function Hero() {
 
   return (
     <section id="top" className="relative overflow-hidden bg-dots pt-28 pb-16 md:pt-36 md:pb-24">
-      <div className="pointer-events-none absolute -top-24 -right-24 size-80 rounded-full bg-cream blur-3xl" aria-hidden="true" />
-      <div className="pointer-events-none absolute bottom-0 -left-32 size-96 rounded-full bg-orange/15 blur-3xl" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute -top-24 -right-24 size-80 rounded-full bg-cream blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute bottom-0 -left-32 size-96 rounded-full bg-orange/15 blur-3xl"
+        aria-hidden="true"
+      />
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 lg:grid-cols-[1.05fr_1fr]">
         <div className="flex flex-col items-start gap-6">
@@ -45,7 +52,10 @@ export function Hero() {
             이제{' '}
             <span className="relative inline-block">
               <span className="relative z-10 text-blue">중앙시장</span>
-              <span className="absolute inset-x-0 bottom-1 -z-0 h-4 -rotate-1 rounded bg-cream md:h-5" aria-hidden="true" />
+              <span
+                className="absolute inset-x-0 bottom-1 -z-0 h-4 -rotate-1 rounded bg-cream md:h-5"
+                aria-hidden="true"
+              />
             </span>
             으로
             <br />
@@ -73,7 +83,10 @@ export function Hero() {
               className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-navy bg-blue px-6 py-3.5 font-bold text-ivory shadow-pop transition-all hover:-translate-y-0.5 hover:shadow-pop-lg active:translate-y-0.5 active:shadow-none"
             >
               꿈돌이 화폐 알아보기
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              <ArrowRight
+                className="size-4 transition-transform group-hover:translate-x-1"
+                aria-hidden="true"
+              />
             </a>
             <a
               href="#stamp"
@@ -109,55 +122,23 @@ export function Hero() {
           </motion.ol>
         </div>
 
-        <div className="relative mx-auto w-full max-w-lg">
-          <div className="relative aspect-square">
-            <motion.div
-              className="absolute inset-[6%] rounded-full border-[3px] border-dashed border-navy/25"
-              animate={reduce ? undefined : { rotate: 360 }}
-              transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-              aria-hidden="true"
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96, y: 16 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ delay: 0.18, duration: 0.65 }}
+          className="relative mx-auto w-full max-w-xl"
+        >
+          <div className="absolute -inset-4 -z-10 rounded-[2.25rem] bg-cream/70 blur-xl" aria-hidden="true" />
+          <div className="overflow-hidden rounded-[2rem] border-2 border-navy/15 bg-ivory shadow-pop-lg">
+            <Image
+              src={kum}
+              alt="꿈돌이 캐릭터가 들어간 꿈돌이 우주코인 콘셉트 이미지"
+              priority
+              sizes="(min-width: 1024px) 520px, 92vw"
+              className="h-auto w-full object-contain"
             />
-            <div className="absolute inset-[14%] rounded-full bg-cream" aria-hidden="true" />
-
-            <motion.div
-              className="absolute inset-0 flex items-center justify-center"
-              animate={reduce ? undefined : { y: [0, -14, 0], rotate: [-3, 3, -3] }}
-              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              <div className="relative aspect-square w-[78%] overflow-hidden rounded-full">
-                <Image
-                  src="/images/coin-hero.png"
-                  alt="파란 에나멜에 별 모양 마스코트가 새겨진 꿈돌이 화폐 코인 콘셉트 시안"
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 420px, 80vw"
-                  className="scale-[1.22] object-cover"
-                />
-              </div>
-            </motion.div>
-
-            <FloatingSticker className="top-[4%] left-[2%] -rotate-6 bg-orange text-ivory" delay={0}>
-              꽈배기
-            </FloatingSticker>
-            <FloatingSticker className="top-[12%] right-0 rotate-6 bg-blue text-ivory" delay={0.6}>
-              메밀전
-            </FloatingSticker>
-            <FloatingSticker className="bottom-[10%] left-0 rotate-3 bg-ivory text-navy" delay={1.2}>
-              스탬프 +1
-            </FloatingSticker>
-
-            <motion.div
-              className="absolute right-[4%] bottom-[6%]"
-              animate={reduce ? undefined : { rotateY: [0, 360] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-            >
-              <MiniCoin className="size-16 md:size-20" />
-            </motion.div>
           </div>
-          <p className="mt-2 text-center text-xs text-muted-foreground">
-            * 코인 이미지는 콘셉트 시안이며 공식 캐릭터·제휴와 무관합니다.
-          </p>
-        </div>
+        </motion.div>
       </div>
 
       <a
@@ -174,26 +155,5 @@ export function Hero() {
         <span className="sr-only">이용 방법으로 이동</span>
       </a>
     </section>
-  )
-}
-
-function FloatingSticker({
-  children,
-  className,
-  delay,
-}: {
-  children: React.ReactNode
-  className: string
-  delay: number
-}) {
-  const reduce = useReducedMotion()
-  return (
-    <motion.span
-      className={`absolute rounded-2xl border-2 border-navy px-3 py-1.5 font-display text-base shadow-pop md:text-lg ${className}`}
-      animate={reduce ? undefined : { y: [0, -8, 0] }}
-      transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut', delay }}
-    >
-      {children}
-    </motion.span>
   )
 }
