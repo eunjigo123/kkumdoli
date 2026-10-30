@@ -1,38 +1,42 @@
 import Image from 'next/image'
 import { Ticket } from 'lucide-react'
 import { Reveal, SectionHeading, StatusBadge } from './shared'
+import a1 from '../../a1.jpg'
+import a2 from '../../a2.jpg'
+import a3 from '../../a3.jpg'
+import a4 from '../../a4.jpg'
 
 const FOODS = [
   {
     category: '오래된 노포 맛집',
     name: '시장 노포 국밥',
     desc: '수십 년 손맛이 우러난 뜨끈한 한 그릇. 시장 사람들의 단골 아침 메뉴.',
-    image: '/images/food-nopo.png',
-    alt: '스테인리스 식탁 위의 뜨끈한 국밥과 반찬',
+    image: a1,
+    alt: '시장 노포 국밥 이미지',
     tilt: '-rotate-1',
   },
   {
     category: '바삭하고 달콤한',
     name: '설탕 꽈배기',
     desc: '갓 튀겨 설탕을 듬뿍 묻힌 꽈배기. 성심당 빵 다음 디저트로 딱!',
-    image: '/images/food-kkwabaegi.png',
-    alt: '설탕이 묻은 꽈배기가 종이봉투에 담긴 모습',
+    image: a2,
+    alt: '설탕 꽈배기 이미지',
     tilt: 'rotate-1',
   },
   {
     category: '고소한 전통의 맛',
     name: '메밀전',
     desc: '얇게 부친 메밀 반죽에 배추와 쪽파. 철판 위에서 바로 부쳐 고소함 가득.',
-    image: '/images/food-memiljeon.png',
-    alt: '철판 위에서 부쳐지는 얇은 메밀전',
+    image: a3,
+    alt: '메밀전 이미지',
     tilt: '-rotate-1',
   },
   {
     category: '시장에서만 만나는',
     name: '시장 분식 한 접시',
     desc: '떡볶이, 순대, 튀김꼬치까지. 걸으며 즐기는 시장 길거리 간식.',
-    image: '/images/food-special.png',
-    alt: '시장 가판대의 떡볶이, 순대, 튀김꼬치',
+    image: a4,
+    alt: '시장 분식 한 접시 이미지',
     tilt: 'rotate-1',
   },
 ]
