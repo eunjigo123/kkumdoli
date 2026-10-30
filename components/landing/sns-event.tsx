@@ -2,12 +2,16 @@ import Image from 'next/image'
 import { Bookmark, Heart, MessageCircle, Send } from 'lucide-react'
 import { Reveal, SectionHeading, StatusBadge } from './shared'
 import { ShareButton } from './share-button'
+import a1 from '../../a1.jpg'
+import a2 from '../../a2.jpg'
+import a4 from '../../a4.jpg'
+import kum from '../../kum.png'
 
 const POSTS = [
-  { image: '/images/market-scene.png', alt: '중앙시장 골목을 걷는 여행자들', title: '인스타그램 인증 이벤트', tag: '#빵지순례다음은중앙시장' },
-  { image: '/images/money-kit.png', alt: '꿈돌이 화폐 키트 구성품', title: '꿈돌이 화폐 사용 인증', tag: '#꿈돌이화폐' },
-  { image: '/images/food-kkwabaegi.png', alt: '종이봉투에 담긴 꽈배기', title: '스탬프 투어 완주 인증', tag: '#꿈돌이스탬프투어' },
-  { image: '/images/coin-hero.png', alt: '꿈돌이 코인 콘셉트 시안', title: '꿈돌이 굿즈 이벤트', tag: '#꿈돌이굿즈' },
+  { image: a1, alt: '시장 노포 국밥 이미지', title: '인스타그램 인증 이벤트', tag: '#빵지순례다음은중앙시장' },
+  { image: kum, alt: '꿈돌이 우주코인 콘셉트 이미지', title: '꿈돌이 화폐 사용 인증', tag: '#꿈돌이화폐' },
+  { image: a2, alt: '설탕 꽈배기 이미지', title: '스탬프 투어 완주 인증', tag: '#꿈돌이스탬프투어' },
+  { image: a4, alt: '시장 분식 한 접시 이미지', title: '꿈돌이 굿즈 이벤트', tag: '#꿈돌이굿즈' },
 ]
 
 export function SnsEvent() {
@@ -30,8 +34,14 @@ export function SnsEvent() {
                   <span className="text-sm font-bold">dreamdol.money</span>
                   <StatusBadge tone="example" className="ml-auto">예시</StatusBadge>
                 </header>
-                <div className="relative aspect-square">
-                  <Image src={post.image} alt={post.alt} fill sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className="object-cover" />
+                <div className="relative aspect-square overflow-hidden bg-cream/20">
+                  <Image
+                    src={post.image}
+                    alt={post.alt}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
                 </div>
                 <div className="flex flex-col gap-2 p-3">
                   <div className="flex items-center gap-3 text-navy/80" aria-hidden="true">
